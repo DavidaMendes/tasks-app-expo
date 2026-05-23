@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "taskapp",
     "name": "tasks-app-expo",
     "slug": "tasks-app-renan",
     "version": "1.0.0",
@@ -29,7 +30,8 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "@react-native-community/datetimepicker"
+      "@react-native-community/datetimepicker",
+      "expo-router"
     ]
   }
 }
