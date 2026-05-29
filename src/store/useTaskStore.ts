@@ -3,70 +3,77 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { TaskItem } from '../utils/handle-api';
-
+import { useAuthStore } from './useAuthStore';
+ 
 const baseURL = process.env.EXPO_PUBLIC_API_URL;
-
+ 
+function getAuthHeaders() {
+  const token = useAuthStore.getState().token;
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+ 
 interface TaskState {
   tasks: TaskItem[];
   loading: boolean;
-
+ 
   fetchTasks: () => void;
   addTask: (text: string, completed: boolean, dueDate: string | null, onSuccess: () => void) => void;
   updateTask: (taskId: string, text: string, completed: boolean, dueDate: string | null, onSuccess: () => void) => void;
   deleteTask: (id: string) => void;
   deleteAllTasks: () => void;
 }
-
+ 
 export const useTaskStore = create<TaskState>()(
   persist(
     (set, get) => ({
       tasks: [],
       loading: false,
-
+ 
       fetchTasks: () => {
         set({ loading: true });
         axios
-          .get<TaskItem[]>(`${baseURL}`)
+          .get<TaskItem[]>(`${baseURL}`, { headers: getAuthHeaders() })
           .then(({ data }) => set({ tasks: data, loading: false }))
           .catch((err) => {
             console.log(err);
             set({ loading: false });
           });
       },
-
+ 
       addTask: (text, completed, dueDate, onSuccess) => {
         axios
-          .post(`${baseURL}/save`, { text, completed, dueDate })
+          .post(`${baseURL}/save`, { text, completed, dueDate }, { headers: getAuthHeaders() })
           .then(() => {
             onSuccess();
             get().fetchTasks();
           })
           .catch((err) => console.log(err));
       },
-
+ 
       updateTask: (taskId, text, completed, dueDate, onSuccess) => {
         axios
-          .post(`${baseURL}/update`, { _id: taskId, text, completed, dueDate })
+          .post(`${baseURL}/update`, { _id: taskId, text, completed, dueDate }, { headers: getAuthHeaders() })
           .then(() => {
             onSuccess();
             get().fetchTasks();
           })
           .catch((err) => console.log(err));
       },
-
+ 
       deleteTask: (id) => {
         axios
-          .post(`${baseURL}/delete`, { _id: id })
+          .post(`${baseURL}/delete`, { _id: id }, { headers: getAuthHeaders() })
           .then(() => get().fetchTasks())
           .catch((err) => console.log(err));
       },
-
+ 
       deleteAllTasks: () => set({ tasks: [] }),
     }),
     {
-      name: 'task-storage', 
+      name: 'task-storage',
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (state) => ({ tasks: state.tasks }),
     }
   )
 );
+ 

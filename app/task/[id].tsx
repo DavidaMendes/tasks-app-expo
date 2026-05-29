@@ -150,22 +150,102 @@ export default function TaskDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { padding: 24, paddingBottom: 48 },
-  sectionTitle: { fontSize: 22, fontWeight: 'bold', marginBottom: 24, textAlign: 'center' },
-  label: { fontSize: 14, fontWeight: 'bold', color: '#444', marginBottom: 6 },
-  input: { borderWidth: 1, borderColor: '#ccc', borderRadius: 6, padding: 12, fontSize: 16, marginBottom: 20 },
-  dateRow: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 20 },
-  dateBtn: { borderWidth: 1, borderColor: '#ccc', paddingVertical: 10, paddingHorizontal: 14, borderRadius: 6 },
-  clearDateBtn: { paddingVertical: 10, paddingHorizontal: 8 },
-  checkRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 20 },
-  priorityRow: { flexDirection: 'row', gap: 10, marginBottom: 32, flexWrap: 'wrap' },
-  priorityBtn: { paddingVertical: 8, paddingHorizontal: 14, borderRadius: 6, borderWidth: 1, borderColor: '#ccc' },
-  priorityText: { color: '#333', fontSize: 14 },
-  saveBtn: { backgroundColor: '#000', padding: 16, borderRadius: 8, alignItems: 'center', marginBottom: 12 },
-  saveBtnDisabled: { backgroundColor: '#ccc' },
-  saveBtnText: { color: '#fff', fontWeight: 'bold', fontSize: 16 },
-  deleteBtn: { borderWidth: 1, borderColor: '#e53935', padding: 16, borderRadius: 8, alignItems: 'center' },
-  deleteBtnText: { color: '#e53935', fontWeight: 'bold', fontSize: 16 },
-  notFound: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  notFoundText: { fontSize: 16, color: '#666' },
+  container: { 
+    padding: 24, 
+    paddingBottom: 48 
+  },
+  sectionTitle: { 
+    fontSize: 22, 
+    fontWeight: 'bold', 
+    marginBottom: 24, 
+    textAlign: 'center' 
+  },
+  label: { 
+    fontSize: 14, 
+    fontWeight: 'bold', 
+    color: '#444', 
+    marginBottom: 6 
+  },
+  input: { 
+    borderWidth: 1, 
+    borderColor: '#ccc', 
+    borderRadius: 6, 
+    padding: 12, 
+    fontSize: 16, 
+    marginBottom: 20 
+  },
+  dateRow: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    gap: 12, 
+    marginBottom: 20 
+  },
+  dateBtn: { 
+    borderWidth: 1, 
+    borderColor: '#ccc', 
+    paddingVertical: 10, 
+    paddingHorizontal: 14, 
+    borderRadius: 6 
+  },
+  clearDateBtn: { 
+    paddingVertical: 10, 
+    paddingHorizontal: 8 
+  },
+  checkRow: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    marginBottom: 20 
+  },
+  priorityRow: { 
+    flexDirection: 'row', 
+    gap: 10, 
+    marginBottom: 32, 
+    flexWrap: 'wrap' 
+  },
+  priorityBtn: { 
+    paddingVertical: 8, 
+    paddingHorizontal: 14, 
+    borderRadius: 6, 
+    borderWidth: 1, 
+    borderColor: '#ccc' 
+  },
+  priorityText: { 
+    color: '#333', 
+    fontSize: 14 },
+  saveBtn: { 
+    backgroundColor: '#000', 
+    padding: 16, 
+    borderRadius: 8, 
+    alignItems: 'center', 
+    marginBottom: 12 
+  },
+  saveBtnDisabled: { 
+    backgroundColor: '#ccc' 
+  },
+  saveBtnText: { 
+    color: '#fff', 
+    fontWeight: 'bold', 
+    fontSize: 16 
+  },
+  deleteBtn: { 
+    borderWidth: 1, 
+    borderColor: '#e53935', 
+    padding: 16, 
+    borderRadius: 8, 
+    alignItems: 'center' 
+  },
+  deleteBtnText: { 
+    color: '#e53935', 
+    fontWeight: 'bold', 
+    fontSize: 16 
+  },
+  notFound: { 
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
+  notFoundText: { 
+    fontSize: 16, 
+    color: '#666' 
+  },
 });
